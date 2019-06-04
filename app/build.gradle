@@ -20,6 +20,10 @@ android {
         sourceCompatibility = '1.8'
         targetCompatibility = '1.8'
     }
+
+    dataBinding {
+        enabled = true
+    }
 }
 dependencies {
 
@@ -35,5 +39,7 @@ dependencies {
 
     implementation "android.arch.lifecycle:extensions:$archVersion"
     annotationProcessor "android.arch.lifecycle:compiler:$archVersion"
+    implementation "android.arch.lifecycle:runtime:$archVersion"
+
 
 }
