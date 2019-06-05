@@ -4,28 +4,53 @@
 
     <data>
 
+        <import type="android.view.View" />
+
         <variable
-            name="counterViewModel"
-            type="com.example.androidmvvm.viewmodel.CounterViewModel" />
+            name="mainViewModel"
+            type="com.example.androidmvvm.viewmodel.MainActivityViewModel" />
     </data>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center">
+        android:gravity="center"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/tv_count"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{String.valueOf(counterViewModel.counter.index)}" />
+            android:text="@{String.valueOf(mainViewModel.counter.index)}" />
 
         <Button
-            android:onClick="@{()->counterViewModel.onButtonClick()}"
             android:id="@+id/bt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="@{()->mainViewModel.onButtonClick()}"
             android:text="button" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{()->mainViewModel.getUser()}"
+            android:text="get User from Api" />
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="@{mainViewModel.isLoading ? View.VISIBLE : View.GONE}" />
+
+        <TextView
+            android:text="@{mainViewModel.userRetrofit.name}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/tv_not_use_dataBinding"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
     </LinearLayout>
 
 </layout>
+
