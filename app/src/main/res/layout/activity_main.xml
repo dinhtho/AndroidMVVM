@@ -5,8 +5,8 @@
     <data>
 
         <variable
-            name="count"
-            type="com.example.androidmvvm.model.Count" />
+            name="counterViewModel"
+            type="com.example.androidmvvm.viewmodel.CounterViewModel" />
     </data>
 
     <LinearLayout
@@ -18,9 +18,10 @@
             android:id="@+id/tv_count"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{String.valueOf(count.count)}" />
+            android:text="@{String.valueOf(counterViewModel.counter.index)}" />
 
         <Button
+            android:onClick="@{()->counterViewModel.onButtonClick()}"
             android:id="@+id/bt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
